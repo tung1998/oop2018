@@ -4,7 +4,7 @@ import java.util.*;
 public class StudentManagement {
 
     // TODO: khai báo thuộc tính students là array chứa các đối tượng thuộc lớp Student (max. 100)
-    List<Student> students  = new ArrayList<Student>();
+    List<Student> students  = new ArrayList<Student>(100);
 
     public boolean sameGroup(Student s1, Student s2) {
         // TODO:
