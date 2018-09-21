@@ -8,30 +8,30 @@ public class StudentManagement {
 
     public boolean sameGroup(Student s1, Student s2) {
         // TODO:
-        return (s1.get_Gr() == s2.get_Gr());
+        return (s1.get_Gr() == null ? s2.get_Gr() == null : s1.get_Gr().equals(s2.get_Gr()));
     }
 
     void studentsByGroup() {
         // TODO:
-        Map<String,List<Student>> student_by_group = new HashMap<String,List<Student>>();
-        for (Student student : students){
-            String key = student.get_Gr();
-            if (student_by_group.containsKey(key)){
-                List<Student> students_has_same_key = student_by_group.get(key);
-                students_has_same_key.add(student);
+        Map<String,List<Student>> student_by_group = new HashMap<>();
+        students.stream().forEach((student) -> {
+            String group = student.get_Gr();
+            if (student_by_group.containsKey(group)){
+                List<Student> students_same_group = student_by_group.get(group);
+                students_same_group.add(student);
             }
             else{
-                List<Student> students_has_same_key = new ArrayList<Student>();
-                students_has_same_key.add(student);
-                student_by_group.put(key,students_has_same_key);
+                List<Student> students_same_group = new ArrayList<>();
+                students_same_group.add(student);
+                student_by_group.put(group,students_same_group);
             }
-        }
-        Set<String> list_key = new HashSet<String>();
-        list_key = student_by_group.keySet();
-        for (String _key : list_key) {
-            System.out.println(_key + ":");
+        });
+        Set<String> list_group = new HashSet<>();
+        list_group = student_by_group.keySet();
+        for (String group :list_group) {
+            System.out.println(group + ":");
             List<Student> list_student = new ArrayList<Student>();
-            list_student = student_by_group.get(_key);
+            list_student = student_by_group.get(group);
             for (Student st : list_student) {
                 System.out.println(st.getInfo());
 
