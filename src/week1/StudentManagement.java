@@ -4,7 +4,8 @@ import java.util.*;
 public class StudentManagement {
 
     // TODO: khai báo thuộc tính students là array chứa các đối tượng thuộc lớp Student (max. 100)
-    List<Student> students  = new ArrayList<>(100);
+    Student[] List_students = new Student[100];
+    public int cout;
 
     public boolean sameGroup(Student s1, Student s2) {
         // TODO:
@@ -14,6 +15,10 @@ public class StudentManagement {
     void studentsByGroup() {
         // TODO:
         Map<String,List<Student>> student_by_group = new HashMap<>();
+        List<Student> students  = new ArrayList<>(100);
+        for(int i=0;i<cout;i++){
+            students.add(List_students[i]);
+        }
         students.stream().forEach((student) -> {
             String group = student.get_Gr();
             if (student_by_group.containsKey(group)){
@@ -43,10 +48,11 @@ public class StudentManagement {
 
     void removeStudent(String id) {
         // TODO:
-        if (students.isEmpty()) return;
-        for (Student st : students){
-            if (st.get_Sid() == id) {
-                students.remove(st);
+        if (cout==0) return;
+        for (int i=0; i<cout;i++){
+            if (List_students[i].get_Sid() == id) {
+                List_students[i] = List_students[cout-1];
+                cout--;
                 System.out.println("remove: " + id);
                 break;
             }
@@ -65,20 +71,21 @@ public class StudentManagement {
         s3.set_Gr("INT22041");
         s4.set_Gr("INT22042");
         StudentManagement sm = new StudentManagement();
+        sm.List_students[0]=s1;
+        sm.List_students[1]=s2;
+        sm.List_students[2]=s3;
+        sm.List_students[3]=s4;
+        sm.cout=4;
         System.out.println("Test sameGroup :");
         System.out.println(sm.sameGroup(s1,s2));
         System.out.println(sm.sameGroup(s4,s2));
         System.out.println(sm.sameGroup(s1,s4));
-        sm.students.add(s1);
-        sm.students.add(s2);
-        sm.students.add(s3);
-        sm.students.add(s4);
         System.out.println("Test student by group :");
         sm.studentsByGroup();
         System.out.println("Test remove: ");
         sm.removeStudent("16021220");
-        for (Student st : sm.students){
-            System.out.println(st.getInfo());
+        for (int i = 0; i < sm.cout ; i++){
+            System.out.println(sm.List_students[i].getInfo());
         }
     }
 }
