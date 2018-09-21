@@ -66,6 +66,8 @@ public class StudentManagement {
         StudentManagement sm = new StudentManagement();
         System.out.println("Test sameGroup :");
         System.out.println(sm.sameGroup(s1,s2));
+        System.out.println(sm.sameGroup(s4,s2));
+        System.out.println(sm.sameGroup(s1,s4));
         sm.students.add(s1);
         sm.students.add(s2);
         sm.students.add(s3);
@@ -73,7 +75,7 @@ public class StudentManagement {
         System.out.println("Test student by group :");
         sm.studentsByGroup();
         System.out.println("Test remove: ");
-        sm.removeStudent("16021210");
+        sm.removeStudent("16021220");
         for (Student st : sm.students){
             System.out.println(st.getInfo());
         }
