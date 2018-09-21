@@ -4,7 +4,7 @@ import java.util.*;
 public class StudentManagement {
 
     // TODO: khai báo thuộc tính students là array chứa các đối tượng thuộc lớp Student (max. 100)
-    List<Student> students  = new ArrayList<Student>(100);
+    List<Student> students  = new ArrayList<>(100);
 
     public boolean sameGroup(Student s1, Student s2) {
         // TODO:
@@ -30,7 +30,7 @@ public class StudentManagement {
         list_group = student_by_group.keySet();
         for (String group :list_group) {
             System.out.println(group + ":");
-            List<Student> list_student = new ArrayList<Student>();
+            List<Student> list_student = new ArrayList<>();
             list_student = student_by_group.get(group);
             for (Student st : list_student) {
                 System.out.println(st.getInfo());
@@ -47,6 +47,7 @@ public class StudentManagement {
         for (Student st : students){
             if (st.get_Sid() == id) {
                 students.remove(st);
+                System.out.println("remove: " + id);
                 break;
             }
         }
