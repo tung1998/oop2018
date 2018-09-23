@@ -1,6 +1,39 @@
 package week2.task3;
 
+import week2.task2.Fraction;
+
 public class Task3 {
+    public static void main(String[] args) {
+        //tivi test
+        System.out.println("tivi");
+        tivi tivi = new tivi();
+        tivi.choose_chanel(10);
+        tivi.Turn_on_off();
+        tivi.choose_chanel(10);
+        tivi.increse_volum();
+
+
+        //binhnuoc test
+        System.out.println("bình nước");
+        binh_nuoc binhcuoc = new binh_nuoc();
+        binhcuoc.Rot_nuoc();
+        binhcuoc.fill_binh_nuoc(100, 100);
+        binhcuoc.Rot_nuoc();
+        binhcuoc.them_da_lanh(5);
+        binhcuoc.Lam_roi();
+
+        //nguoiyeu Test
+        System.out.println("Người yêu");
+        nguoi_yeu nguoiYeu = new nguoi_yeu();
+        nguoiYeu.noi_chuyen();
+        nguoiYeu.cai_nhau(4);
+        nguoiYeu.DuocTangQua("gaubong");
+        nguoiYeu.noi_chuyen();
+        nguoiYeu.DuocTangQua("nhanHotXoan");
+        nguoiYeu.noi_chuyen();
+        nguoiYeu.DuocTangQua("XeHoi");
+        nguoiYeu.noi_chuyen();
+    }
 }
 
 //TODO: khai báo 3 class tương ứng với 3 đối tượng thực tế ở dưới
@@ -36,14 +69,14 @@ class tivi{//class tivi
     public void choose_chanel(int chanel ){//ham chon kenh
         if(this.Get_on_off() == true) {
             this.Set_chanel(chanel);
-            System.out.println("da chuyen sang kenh" + chanel);
+            System.out.println("da chuyen sang kenh: " + chanel);
         }else System.out.println("ti vi dang tat");
     }
     //ham tang giam am luong
     public void increse_volum(){
         if(this.Get_on_off() == true) {
             this.Set_volum(this.Get_volum()+5);
-            System.out.println("da tang am luong len"+this.Get_volum());
+            System.out.println("da tang am luong len: "+this.Get_volum());
         }else System.out.println("ti vi dang tat");
     }
 
@@ -85,22 +118,24 @@ class binh_nuoc{
     }
 
     public void fill_binh_nuoc(int dungLuong, int nhiet_do ){//ham do nuoc vao binh
+        this.Set_nhiet_do(((this.Get_dung_luong()*this.Get_nhiet_do())+(dungLuong*nhiet_do))/(this.Get_dung_luong()+dungLuong));
         this.Set_dung_luong(this.Get_dung_luong()+dungLuong);
-        this.Set_nhiet_do((this.Get_dung_luong()*this.Get_nhiet_do()+dungLuong*nhiet_do)/(this.Get_dung_luong()+dungLuong));
         if(this.Get_dung_luong()>100) this.Set_dung_luong(100);
         System.out.println("binh nuoc da duoc lam day");
         System.out.println("binh nuoc co nhiet do:"+this.Get_nhiet_do());
 
     }
 
-    public void them_da_lanh(){//ham them da vao binh
-        this.Set_nhiet_do(this.Get_nhiet_do()-5);
-        System.out.println("da giam nhiet do nuoc ve"+this.Get_nhiet_do());
+    public void them_da_lanh(int so_luong_da){//ham them da vao binh
+        this.Set_nhiet_do(this.Get_nhiet_do()-(5*so_luong_da));
+        System.out.println("da giam nhiet do nuoc ve: "+this.Get_nhiet_do());
     }
 
     public void Rot_nuoc(){//ham rot nuoc ra coc
-        this.Set_dung_luong(this.Get_dung_luong()-5);
-        System.out.println("da rot nuoc ra coc, luong nuoc con lai trong binh la"+this.Get_dung_luong());
+        if (this.Get_dung_luong()>0) {
+            this.Set_dung_luong(this.Get_dung_luong() - 5);
+            System.out.println("da rot nuoc ra coc, luong nuoc con lai trong binh la: " + this.Get_dung_luong());
+        }else System.out.println("bình đã hết nước");
     }
 }
 
@@ -125,8 +160,9 @@ class nguoi_yeu{
     public void DuocTangQua(String tenMonQua){//ham tang qua cho nguoi yeu
         if (tenMonQua=="gaubong") this.Set_muc_do_tinh_cam(this.Get_muc_do_tinh_cam()+5);
         else if (tenMonQua=="nhanHotXoan") this.Set_muc_do_tinh_cam(this.Get_muc_do_tinh_cam()+15);
-        else if (tenMonQua=="XeHoi") this.Set_muc_do_tinh_cam(this.Get_muc_do_tinh_cam()+25);
+        else if (tenMonQua=="XeHoi") this.Set_muc_do_tinh_cam(this.Get_muc_do_tinh_cam()+35);
         else this.Set_muc_do_tinh_cam(this.Get_muc_do_tinh_cam()+2);
+        if (this.Get_muc_do_tinh_cam()>100) this.Set_muc_do_tinh_cam(100);
         System.out.println("Sau khi được tặng "+tenMonQua+" tình cảm của người yêu đối với bạn là: "+this.Get_muc_do_tinh_cam());
     }
 
@@ -142,10 +178,10 @@ class nguoi_yeu{
     }
 
     public void noi_chuyen(){//ham nói chuyện với người yêu
-        if(this.Get_muc_do_tinh_cam()<=10) System.out.println("em chán anh lắm rồi :(");
-        else if(this.Get_muc_do_tinh_cam()<=20) System.out.println("anh chả thương em gì cả :(");
-        else if(this.Get_muc_do_tinh_cam()<=50) System.out.println("anh hết yêu em rồi đúng không :(");
-        else if(this.Get_muc_do_tinh_cam()<=80) System.out.println("em yêu anh lắm cơ :)");
+        if(this.Get_muc_do_tinh_cam()<10) System.out.println("em chán anh lắm rồi :(");
+        else if(this.Get_muc_do_tinh_cam()<20) System.out.println("anh chả thương em gì cả :(");
+        else if(this.Get_muc_do_tinh_cam()<50) System.out.println("anh hết yêu em rồi đúng không :(");
+        else if(this.Get_muc_do_tinh_cam()<80) System.out.println("em yêu anh lắm cơ :)");
         else if(this.Get_muc_do_tinh_cam()<=100) System.out.println("em yêu anh nhất trên đời :) :D ");
     }
 
