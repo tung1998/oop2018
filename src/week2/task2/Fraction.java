@@ -78,8 +78,8 @@ public class Fraction {
     }
     public boolean equals(Object obj){
         Fraction other = (Fraction) obj;
-        other.rutgon();
-        this.rutgon();
+        other.toigian();
+        this.toigian();
         return  ((other.denominator == this.denominator) && (other.numerator == this.numerator));
     }
     public static void main(String[] args) {
