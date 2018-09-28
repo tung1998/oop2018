@@ -76,6 +76,12 @@ public class Fraction {
         // TODO: Phương thức chia hai phân số (this và other), trả về đối tượng Fraction mới
         return new Fraction(this.Get_Ts()*other.Get_Ms(),this.Get_Ms()*other.Get_Ts());
     }
+    public boolean equals(Object obj){
+        Fraction other = (Fraction) obj;
+        other.rutgon();
+        this.rutgon();
+        return  ((other.denominator == this.denominator) && (other.numerator == this.numerator));
+    }
     public static void main(String[] args) {
         Fraction f1 = new Fraction(0, 3);
         Fraction f2 = new Fraction(4,6);
