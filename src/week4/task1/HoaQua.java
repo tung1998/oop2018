@@ -18,7 +18,9 @@ public class HoaQua {
 
     public HoaQua() {
     }
-
+    /**
+     * @getter-setter
+     */
     public int getPrice() {
         return price;
     }

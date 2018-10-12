@@ -15,7 +15,9 @@ public class Cam extends HoaQua {
 
     public Cam() {
     }
-
+    /**
+     * @getter-setter
+     */
     public String getGiong() {
         return giong;
     }
