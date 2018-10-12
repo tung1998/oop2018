@@ -11,7 +11,6 @@ public class Circle extends Shape {
     public Circle() {
         super();
     }
-
     public Circle(double radius) {
         super();
         this.radius = radius;
@@ -21,7 +20,9 @@ public class Circle extends Shape {
         super(color, filled);
         this.radius = radius;
     }
-
+    /**
+     * @getter-setter
+     */
     public double getRadius() {
         return radius;
     }
@@ -31,7 +32,6 @@ public class Circle extends Shape {
     }
 
     /**
-     *
      * @return the area of the circle
      */
     public double getArea() {
@@ -39,7 +39,6 @@ public class Circle extends Shape {
     }
 
     /**
-     *
      * @return the perimeter of the circle
      */
     public double getPerimeter() {

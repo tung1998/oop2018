@@ -15,7 +15,9 @@ public class Square extends Rectangle {
     public Square() {
         super(1.0, 1.0);
     }
-
+    /**
+     * @getter-setter
+     */
     public double getSide() {
         return this.getWidth();
     }

@@ -15,7 +15,9 @@ public class Shape {
     public Shape(){
 
     }
-
+    /**
+     * @getter-setter
+     */
     public String getColor() {
         return color;
     }
@@ -31,6 +33,8 @@ public class Shape {
     public void setFilled(boolean filled) {
         this.filled = filled;
     }
+
+
 
     @Override
     public String toString() {

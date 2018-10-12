@@ -22,7 +22,9 @@ public class Rectangle extends Shape {
     public Rectangle() {
         super();
     }
-
+    /**
+     * @getter-setter
+     */
     public double getWidth() {
         return width;
     }
