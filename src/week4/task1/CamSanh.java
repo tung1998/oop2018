@@ -3,12 +3,12 @@ package week4.task1;
 
 public class CamSanh extends Cam {
 
-    public CamSanh(int price, double size) {
-        super(price, size, "Cam Sanh");
+    public CamSanh(int uprice, double size) {
+        super(uprice, size, "Cam Sanh");
     }
 
     public CamSanh(CamSanh c) {
-        this(c.price, c.size);
+        this(c.getUnitPrice(), c.getSize());
     }
 
     public CamSanh() {

@@ -10,7 +10,7 @@ public class Cam extends HoaQua {
     }
 
     public Cam(Cam c) {
-        this(c.price, c.size, c.giong);
+        this(c.getUnitPrice(), c.getSize(), c.getGiong());
     }
 
     public Cam() {
@@ -19,7 +19,7 @@ public class Cam extends HoaQua {
      * @getter-setter
      */
     public String getGiong() {
-        return giong;
+        return this.giong;
     }
 
     public void setGiong(String giong) {

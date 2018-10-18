@@ -6,10 +6,9 @@ public class Tao extends HoaQua {
         super(price, size, "red");
     }
     public Tao(Tao t) {
-        this(t.price, t.size);
+        this(t.getUnitPrice(), t.getSize());
     }
     public Tao() {
     }
-
 
 }
