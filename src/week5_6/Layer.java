@@ -16,7 +16,7 @@ public class Layer {
 
     public void PrintShape(){
         for(int i = 0; i < shapes.size(); i++){
-            System.out.println(shapes.get(i).getName());
+            System.out.println("this is: " + shapes.get(i).getName());
         }
     }
 
@@ -27,5 +27,6 @@ public class Layer {
                 i--;
             }
         }
+        System.out.println("triangle had deleted");
     }
 }

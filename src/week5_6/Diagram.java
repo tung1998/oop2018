@@ -25,5 +25,6 @@ public class Diagram {
                 }
             }
         }
+        System.out.println("circle had deleted");
     }
 }
