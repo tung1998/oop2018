@@ -22,7 +22,7 @@ public class Multiplication extends BinaryExpression{
 
     @Override
     public String toString(){
-        return left.evaluate() + "*" + right.evaluate();
+        return "("+left.toString() + "*" + right.toString()+")";
     }
 
     @Override

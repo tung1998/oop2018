@@ -28,8 +28,8 @@ public class Task2 {
 
     //ClassCastException
     public static void cast() throws ClassCastException {
-        Object obj = new Integer(123);
-        System.out.println((String) obj);
+        Object obj = new Float(123);
+        System.out.println((Integer) obj);
     }
 
     //IOException

@@ -13,7 +13,7 @@ public class Numeral extends Expression{
 
     @Override
     public String toString(){
-        return "value = " + value;
+        return Integer.toString(value);
     }
     @Override
     public int evaluate() {

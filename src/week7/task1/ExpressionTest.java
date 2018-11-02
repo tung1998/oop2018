@@ -16,10 +16,10 @@ public class ExpressionTest {
         Square result = new Square(addition);
 
 
-        System.out.println("result: (" + num10.evaluate() + "^2 - " + num1.evaluate() + " + " +
-                num2.evaluate() + "*" + num3.evaluate() + ")^2 == " + result.evaluate() );
 
 
+        System.out.println(result.toString()+"="+result.evaluate());
+        System.out.println();
         try {
             Division er = new Division(num10, num0);
             int a = er.evaluate();

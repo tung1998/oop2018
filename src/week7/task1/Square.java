@@ -10,7 +10,7 @@ public class Square extends Expression{
 
     @Override
     public String toString(){
-        return expression.evaluate() + "^2";
+        return expression.toString() + "^2";
     }
     @Override
     public int evaluate() {
